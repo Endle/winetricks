@@ -5948,6 +5948,28 @@ load_directx9()
     w_try "$WINE" "$W_TMP_WIN"\\DXSETUP.exe $W_UNATTENDED_SLASH_SILENT
 }
 
+w_metadata builtin_directx9 dlls \
+    title="MS DirectX 9 (Usually overkill.  Try d3dx9_36 first)" \
+    publisher="Microsoft" \
+    year="2010" \
+    media="download"
+
+load_builtin_directx9()
+{
+    helper_directx_dl
+
+    w_set_winver winxp
+
+    w_override_dlls builtin d3dim d3drm d3dx8 d3dx9_24 d3dx9_25 d3dx9_26 d3dx9_27 d3dx9_28 d3dx9_29
+    w_override_dlls builtin d3dx9_30 d3dx9_31 d3dx9_32 d3dx9_33 d3dx9_34 d3dx9_35 d3dx9_36 d3dx9_37
+    w_override_dlls builtin d3dx9_38 d3dx9_39 d3dx9_40 d3dx9_41 d3dx9_42 d3dx9_43 d3dxof
+    w_override_dlls builtin dciman32 ddrawex devenum dmband dmcompos dmime dmloader dmscript dmstyle
+    w_override_dlls builtin dmsynth dmusic dmusic32 dplay dplayx dpnaddr dpnet dpnhpast dpnlobby
+    w_override_dlls builtin dswave dxdiagn msdmo qcap quartz streamci
+    w_override_dlls builtin dxdiag.exe
+    w_override_dlls builtin d3d8 d3d9 dinput dinput8 dsound
+
+}
 #----------------------------------------------------------------
 
 w_metadata dpvoice dlls \
